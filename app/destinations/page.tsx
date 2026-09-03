@@ -14,7 +14,7 @@ export default function DestinationsPage() {
       <SmoothScroll />
       <Cursor />
       <Navigation />
-      <main className="min-h-screen" />
+      <main className="min-h-screen"></main>
       <Footer />
     </>
   );

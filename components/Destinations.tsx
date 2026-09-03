@@ -211,7 +211,7 @@ export function Destinations() {
   };
 
   return (
-    <section id="destinations" className="relative bg-cream py-28 md:py-40">
+    <section id="destinations" className="relative bg-cream pb-40 pt-20 md:pb-64 md:pt-20">
       <div className="mx-auto max-w-[94vw] px-6 md:px-10">
         <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>

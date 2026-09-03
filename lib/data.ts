@@ -86,6 +86,7 @@ export interface Experience {
   description: string;
   details: string[];
   image: string;
+  video: string;
 }
 
 export const EXPERIENCES: Experience[] = [
@@ -102,6 +103,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=1600&q=80",
+    video: "yacht-e58b3f7a.mp4",
   },
   {
     title: "Sunset in a Vineyard",
@@ -116,6 +118,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1600&q=80",
+    video: "vineyard-236aa879.mp4",
   },
   {
     title: "Private Gallery Access",
@@ -130,6 +133,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1518998053901-5348d3961a04?auto=format&fit=crop&w=1600&q=80",
+    video: "gallery-0c3c6a92.mp4",
   },
   {
     title: "A Spa Retreat",
@@ -144,6 +148,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=80",
+    video: "spa-8fb3a06d.mp4",
   },
   {
     title: "A Cultural Immersion",
@@ -158,6 +163,7 @@ export const EXPERIENCES: Experience[] = [
     ],
     image:
       "https://images.unsplash.com/photo-1595351298020-038700609878?auto=format&fit=crop&w=1600&q=80",
+    video: "craft-6020c33a.mp4",
   },
 ];
 
@@ -197,6 +203,18 @@ export const ITINERARY = {
   ],
   image:
     "https://images.unsplash.com/photo-1583844056361-4418a8f2a985?auto=format&fit=crop&w=1800&q=80",
+  // Foreground gallery (right column) — a centered trio: small | main | small.
+  // Reusing proven-working Unsplash URLs already used elsewhere in the site.
+  imageMain:
+    "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80",
+  imageLeft:
+    "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80",
+  imageRight:
+    "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=800&q=80",
+  imageExtra1:
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
+  imageExtra2:
+    "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80",
 };
 
 export const TESTIMONIAL = {

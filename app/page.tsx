@@ -6,10 +6,10 @@ import { Hero } from "@/components/Hero";
 import { BrandStatement } from "@/components/BrandStatement";
 import { Marquee } from "@/components/Marquee";
 import { Destinations } from "@/components/Destinations";
-import { Experiences } from "@/components/Experiences";
-import { HowItWorks } from "@/components/HowItWorks";
 import { FeaturedItinerary } from "@/components/FeaturedItinerary";
 import { Testimonial } from "@/components/Testimonial";
+import { Experiences } from "@/components/Experiences";
+import { HowItWorks } from "@/components/HowItWorks";
 import { Inquiry } from "@/components/Inquiry";
 import { Footer } from "@/components/Footer";
 import { DESTINATIONS } from "@/lib/data";
@@ -26,10 +26,10 @@ export default function Home() {
         <BrandStatement />
         <Marquee items={DESTINATIONS.map((d) => d.name)} />
         <Destinations />
-        <Experiences />
-        <HowItWorks />
         <FeaturedItinerary />
         <Testimonial />
+        <Experiences />
+        <HowItWorks />
         <Inquiry />
       </main>
       <Footer />
