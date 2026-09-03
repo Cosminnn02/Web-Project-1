@@ -1,26 +1,180 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN TOKENS  (Tailwind v4 — configured in CSS, not JS)
+   Palette: ivory base · charcoal text · muted gold accent
+   ============================================================ */
+@theme {
+  --color-ivory: #f7f4ef;
+  --color-cream: #efeae1;
+  --color-charcoal: #1c1b19;
+  --color-ink: #2a2825;
+  --color-gold: #b08d57;
+  --color-gold-soft: #c9ae86;
+  --color-line: #d8d2c6;
+
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  --tracking-luxe: 0.18em;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis drives smooth scroll, not CSS */
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv01";
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ivory);
+}
+
+/* Refined, thin scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ivory);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 999px;
+  border: 3px solid var(--color-ivory);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-soft);
+}
+
+/* ============================================================
+   ELEGANT FORM FIELDS  (underline focus, no boxes)
+   ============================================================ */
+.field {
+  position: relative;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+  background: transparent;
+  padding: 0.75rem 0;
+  font-size: 0.95rem;
+  color: var(--color-charcoal);
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+}
+.field textarea {
+  resize: none;
+}
+.field::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+.field:focus-within::after {
+  transform: scaleX(1);
+}
+.field label {
+  display: block;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  opacity: 0.7;
+  margin-bottom: 0.15rem;
+}
+
+/* Dark-act variant of the field (for charcoal sections) */
+.field-dark input,
+.field-dark select,
+.field-dark textarea {
+  color: var(--color-ivory);
+  border-bottom-color: rgba(247, 244, 239, 0.25);
+}
+.field-dark label {
+  color: var(--color-ivory);
+  opacity: 0.6;
+}
+
+/* ============================================================
+   EXPERIENCES — reduced-motion fallback (no pinning)
+   When JS skips the pinned sequence, the acts stack and scroll
+   like a normal page.
+   ============================================================ */
+#experiences[data-reduced] {
+  height: auto;
+}
+#experiences[data-reduced] .ex-intro,
+#experiences[data-reduced] .ex-slide {
+  position: relative;
+  inset: auto;
+}
+#experiences[data-reduced] .ex-intro {
+  padding: 8rem 0;
+}
+#experiences[data-reduced] .ex-slide {
+  min-height: 100svh;
+}
+#experiences[data-reduced] .ex-count {
+  display: none;
+}
+#experiences[data-reduced] .ex-word {
+  opacity: 1;
+  clip-path: none;
+  transform: none;
+}
+#experiences[data-reduced] .ex-copy {
+  opacity: 1;
+  clip-path: none;
+  transform: none;
+}
+
+/* Watermark word size — set here (not via Tailwind arbitrary values) so it
+   is independent of the dev-server's class scan. */
+.ex-word {
+  font-size: 5rem;
+}
+@media (min-width: 768px) {
+  .ex-word {
+    font-size: 8rem;
+  }
+}
+
+/* ============================================================
+   REDUCED MOTION  — calm, non-scroll-jacking fallback
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
