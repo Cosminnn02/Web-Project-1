@@ -17,37 +17,32 @@ export const NAV_LINKS = [
   { label: "Experiences", href: "/experiences" },
   { label: "Private Travel", href: "/private-travel" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ] as const;
 
 export interface Destination {
   name: string;
   region: string;
+  continent: string;
   description: string;
   price: string; // "Private" or a starting figure
   image: string;
 }
 
 export const DESTINATIONS: Destination[] = [
+  // ——— Europe ———
   {
     name: "Santorini",
     region: "Cyclades, Greece",
+    continent: "Europe",
     description: "A private caldera villa, a chef on call, and the Aegean to yourself.",
     price: "Private",
     image:
       "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    name: "Kyoto",
-    region: "Kansai, Japan",
-    description: "Temple gardens at first light, a tea master, and rooms above the city.",
-    price: "From $48,000",
-    image:
-      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1400&q=80",
-  },
-  {
     name: "Amalfi Coast",
     region: "Campania, Italy",
+    continent: "Europe",
     description: "A cliffside palazzo, a boat at dawn, and long lunches that never end.",
     price: "From $62,000",
     image:
@@ -56,26 +51,152 @@ export const DESTINATIONS: Destination[] = [
   {
     name: "Swiss Alps",
     region: "Valais, Switzerland",
+    continent: "Europe",
     description: "A private chalet, a personal guide, and peaks that belong to no one.",
     price: "Private",
     image:
       "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=1400&q=80",
   },
   {
+    name: "Lofoten Islands",
+    region: "Nordland, Norway",
+    continent: "Europe",
+    description: "A whitewashed rorbu above the fjord, midnight sun, and the sea to yourself.",
+    price: "From $38,000",
+    image:
+      "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— Asia ———
+  {
+    name: "Kyoto",
+    region: "Kansai, Japan",
+    continent: "Asia",
+    description: "Temple gardens at first light, a tea master, and rooms above the city.",
+    price: "From $48,000",
+    image:
+      "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Bali",
+    region: "Indonesia",
+    continent: "Asia",
+    description: "A jungle estate, a private pool, and mornings that begin with silence.",
+    price: "From $41,000",
+    image:
+      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Maldives",
+    region: "North Atoll",
+    continent: "Asia",
+    description: "A single overwater villa, a house reef, and a horizon with nothing on it.",
+    price: "Private",
+    image:
+      "https://images.unsplash.com/photo-1514282401047-d79a71a59e8?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— Africa ———
+  {
     name: "Marrakech",
     region: "Morocco",
+    continent: "Africa",
     description: "A restored riad, a private hammam, and the medina after the crowds.",
     price: "From $32,000",
     image:
       "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=1400&q=80",
   },
   {
-    name: "Bali",
-    region: "Indonesia",
-    description: "A jungle estate, a private pool, and mornings that begin with silence.",
-    price: "From $41,000",
+    name: "Serengeti",
+    region: "Tanzania",
+    continent: "Africa",
+    description: "A private tented camp, a guide who knows the plains, and the migration.",
+    price: "From $55,000",
     image:
-      "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Cape Town",
+    region: "Western Cape, South Africa",
+    continent: "Africa",
+    description: "A cliff estate between two oceans, a cellar, and the city at your feet.",
+    price: "From $36,000",
+    image:
+      "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— North America ———
+  {
+    name: "Banff",
+    region: "Alberta, Canada",
+    continent: "North America",
+    description: "A lakeside lodge, a private guide, and the Rockies in first light.",
+    price: "From $44,000",
+    image:
+      "https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Big Sur",
+    region: "California, USA",
+    continent: "North America",
+    description: "A cliffside house above the Pacific, a chef, and the coast to yourself.",
+    price: "From $58,000",
+    image:
+      "https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Tulum",
+    region: "Quintana Roo, Mexico",
+    continent: "North America",
+    description: "A cenote, a private beach, and the jungle at the edge of the sea.",
+    price: "From $34,000",
+    image:
+      "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— South America ———
+  {
+    name: "Cusco",
+    region: "Peru",
+    continent: "South America",
+    description: "A private hacienda above the Andes, a guide, and the road to Machu Picchu.",
+    price: "From $42,000",
+    image:
+      "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Patagonia",
+    region: "Argentina",
+    continent: "South America",
+    description: "A remote estancia, a private guide, and the wind at the end of the world.",
+    price: "From $52,000",
+    image:
+      "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— Oceania ———
+  {
+    name: "Queenstown",
+    region: "Otago, New Zealand",
+    continent: "Oceania",
+    description: "A lakeside villa, a private heli, and the Southern Alps as your backdrop.",
+    price: "From $46,000",
+    image:
+      "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=1400&q=80",
+  },
+  {
+    name: "Great Barrier Reef",
+    region: "Queensland, Australia",
+    continent: "Oceania",
+    description: "A private island, a house reef, and the water to yourself.",
+    price: "Private",
+    image:
+      "https://images.unsplash.com/photo-1583212292454-1fe6229603b7?auto=format&fit=crop&w=1400&q=80",
+  },
+  // ——— Antarctica ———
+  {
+    name: "Antarctica",
+    region: "The Southern Ocean",
+    continent: "Antarctica",
+    description: "A private expedition, a research station, and a continent that belongs to no one.",
+    price: "Private",
+    image:
+      "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1400&q=80",
   },
 ];
 
@@ -203,18 +324,13 @@ export const ITINERARY = {
   ],
   image:
     "https://images.unsplash.com/photo-1583844056361-4418a8f2a985?auto=format&fit=crop&w=1800&q=80",
-  // Foreground gallery (right column) — a centered trio: small | main | small.
-  // Reusing proven-working Unsplash URLs already used elsewhere in the site.
-  imageMain:
-    "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?auto=format&fit=crop&w=1400&q=80",
-  imageLeft:
-    "https://images.unsplash.com/photo-1531366936337-7c912a4589a7?auto=format&fit=crop&w=800&q=80",
-  imageRight:
-    "https://images.unsplash.com/photo-1597212618440-806262de4f6b?auto=format&fit=crop&w=800&q=80",
-  imageExtra1:
-    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80",
-  imageExtra2:
-    "https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80",
+  // Foreground gallery (right column) — a 5-image ring: center | sides | behind.
+  // Local pictures in /public/pics, mapped to the itinerary's highlights.
+  imageMain: "/pics/pexels-alejandro-henriquez-558322658-19102632.jpg",
+  imageLeft: "/pics/pexels-dendoktoor-9100844.jpg",
+  imageRight: "/pics/pexels-celalkeser-33966954.jpg",
+  imageExtra1: "/pics/pexels-qaarif-16018410.jpg",
+  imageExtra2: "/pics/pexels-pixabay-358223.jpg",
 };
 
 export const TESTIMONIAL = {

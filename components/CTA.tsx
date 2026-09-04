@@ -1,3 +1,5 @@
+"use client";
+
 import { Magnetic } from "./Magnetic";
 import { scrollTo } from "@/lib/lenis";
 
@@ -15,7 +17,7 @@ interface CTAProps {
  */
 export function CTA({
   children,
-  href = "#inquiry",
+  href = "/private-travel",
   variant = "solid",
   light = false,
   onClick,

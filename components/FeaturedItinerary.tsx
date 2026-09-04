@@ -141,7 +141,7 @@ export function FeaturedItinerary() {
           </ul>
 
           <div className="it-item mt-12">
-            <CTA href="#inquiry">View Full Itinerary</CTA>
+            <CTA>View Full Itinerary</CTA>
           </div>
         </div>
 

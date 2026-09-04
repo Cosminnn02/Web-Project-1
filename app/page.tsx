@@ -10,7 +10,6 @@ import { FeaturedItinerary } from "@/components/FeaturedItinerary";
 import { Testimonial } from "@/components/Testimonial";
 import { Experiences } from "@/components/Experiences";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Inquiry } from "@/components/Inquiry";
 import { Footer } from "@/components/Footer";
 import { DESTINATIONS } from "@/lib/data";
 
@@ -30,7 +29,6 @@ export default function Home() {
         <Testimonial />
         <Experiences />
         <HowItWorks />
-        <Inquiry />
       </main>
       <Footer />
     </>

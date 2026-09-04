@@ -77,7 +77,7 @@ export function Navigation() {
         </ul>
 
         <div className="hidden lg:block">
-          <CTA href="#inquiry" variant="ghost" light={!solid}>
+          <CTA variant="ghost" light={!solid}>
             Begin Inquiry
           </CTA>
         </div>
@@ -120,7 +120,7 @@ export function Navigation() {
             </li>
           ))}
           <li className="pt-3">
-            <CTA href="#inquiry">Begin Inquiry</CTA>
+            <CTA>Begin Inquiry</CTA>
           </li>
         </ul>
       </div>

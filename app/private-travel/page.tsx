@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/Cursor";
 import { Navigation } from "@/components/Navigation";
+import { Inquiry } from "@/components/Inquiry";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -14,7 +15,9 @@ export default function PrivateTravelPage() {
       <SmoothScroll />
       <Cursor />
       <Navigation />
-      <main className="min-h-screen" />
+      <main className="min-h-screen">
+        <Inquiry />
+      </main>
       <Footer />
     </>
   );

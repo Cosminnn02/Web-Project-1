@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { DUR, EASE, prefersReducedMotion } from "@/lib/motion";
-import { scrollTo } from "@/lib/lenis";
 import { CTA } from "./CTA";
 import { Magnetic } from "./Magnetic";
 
@@ -111,11 +110,7 @@ export function Hero() {
         <div className="hero-cta mt-12 flex flex-wrap items-center gap-4">
           <Magnetic>
             <a
-              href="#inquiry"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("#inquiry");
-              }}
+              href="/private-travel"
               className="group inline-flex items-center gap-3 bg-ivory px-[clamp(1.5rem,2vw,2.5rem)] py-[clamp(0.9rem,1.1vw,1.4rem)] text-[clamp(0.7rem,0.85vw,0.95rem)] uppercase tracking-luxe text-charcoal transition-colors duration-500 hover:bg-gold hover:text-ivory"
             >
               Begin Inquiry
