@@ -2,23 +2,23 @@ import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { Cursor } from "@/components/Cursor";
 import { Navigation } from "@/components/Navigation";
-import { About } from "@/components/About";
+import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "About — Maison Voyage",
+  title: "Contact — Maison Voyage",
   description:
-    "Maison Voyage is a private travel atelier in Geneva — a small number of houses, a long memory of places.",
+    "Begin the conversation with Maison Voyage — a private travel atelier in Geneva.",
 };
 
-export default function AboutPage() {
+export default function ContactPage() {
   return (
     <>
       <SmoothScroll />
       <Cursor />
       <Navigation />
       <main className="min-h-screen">
-        <About />
+        <Contact />
       </main>
       <Footer />
     </>

@@ -39,7 +39,7 @@ export function Navigation() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         solid
-          ? "bg-ivory/85 backdrop-blur-md border-b border-line"
+          ? "bg-ivory/95 border-b border-line"
           : "bg-transparent border-b border-transparent"
       }`}
     >

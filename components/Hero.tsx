@@ -8,7 +8,7 @@ import { CTA } from "./CTA";
 import { Magnetic } from "./Magnetic";
 
 const HERO_IMG =
-  "https://images.unsplash.com/photo-1604145195376-e2c8195adf29?auto=format&fit=crop&w=2200&q=80";
+  "/images/home/hero.jpg";
 
 /**
  * The one big moment. Full-bleed imagery, parallax, word-mask headline,

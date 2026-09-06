@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { DUR, EASE } from "@/lib/motion";
-import { DESTINATIONS } from "@/lib/data";
+import { SIGNATURE, type Destination } from "@/lib/data";
 import { RevealText } from "./RevealText";
 
 function DestinationCard({
@@ -13,9 +14,10 @@ function DestinationCard({
   region,
   price,
   image,
+  slug,
   index,
   active,
-}: (typeof DESTINATIONS)[number] & { index: number; active: number }) {
+}: Destination & { index: number; active: number }) {
   const ref = useReveal<HTMLElement>((scope) => {
     // Staggered entrance
     gsap.fromTo(
@@ -55,11 +57,11 @@ function DestinationCard({
   const scale = offset === 0 ? 1 : offset === 1 ? 0.75 : offset === 2 ? 0.6 : 0.5;
 
   return (
-    <article
-      ref={ref}
-      data-cursor
-      className={`group shrink-0 cursor-pointer transition-[width] duration-700 [transition-timing-function:cubic-bezier(0.19,1,0.22,1)] ${index === active ? "w-[34vw]" : "w-[28vw]"}`}
+    <Link
+      href={`/destinations/${slug}`}
+      className={`group shrink-0 outline-none focus-visible:ring-1 focus-visible:ring-gold/70 transition-[width] duration-700 [transition-timing-function:cubic-bezier(0.19,1,0.22,1)] ${index === active ? "w-[34vw]" : "w-[28vw]"}`}
     >
+    <article ref={ref} data-cursor>
       <div
         className="transition-transform duration-700 [transition-timing-function:cubic-bezier(0.19,1,0.22,1)]"
         style={{ transform: `scale(${scale})` }}
@@ -100,6 +102,7 @@ function DestinationCard({
         </div>
       </div>
     </article>
+    </Link>
   );
 }
 
@@ -207,7 +210,7 @@ export function Destinations() {
   };
 
   const scroll = (dir: number) => {
-    centerOn(Math.max(0, Math.min(DESTINATIONS.length - 1, active + dir)));
+    centerOn(Math.max(0, Math.min(SIGNATURE.length - 1, active + dir)));
   };
 
   return (
@@ -223,7 +226,7 @@ export function Destinations() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-ink/60">
-            A few of the places we return to — each one held privately, each one
+            Seven of the places we return to — each one held privately, each one
             different.
           </p>
         </div>
@@ -233,7 +236,7 @@ export function Destinations() {
         <FilmStrip />
         <div ref={rowRef} onScroll={onScroll} className="relative z-10 flex w-full items-center gap-[2vw] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           <CtaSide side="left" />
-          {DESTINATIONS.map((d, i) => (
+          {SIGNATURE.map((d, i) => (
             <DestinationCard key={d.name} {...d} index={i} active={active} />
           ))}
           <CtaSide side="right" />

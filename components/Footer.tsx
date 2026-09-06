@@ -13,9 +13,12 @@ const SOCIALS = [
  * Refined, minimal footer — brand, tagline, nav, contact, socials, newsletter.
  */
 export function Footer() {
+  // Anchor links smooth-scroll in place; real routes navigate normally.
   const go = (e: React.MouseEvent, href: string) => {
-    e.preventDefault();
-    scrollTo(href);
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      scrollTo(href);
+    }
   };
 
   return (

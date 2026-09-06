@@ -10,11 +10,11 @@ import { RevealText } from "./RevealText";
 import { CTA } from "./CTA";
 
 const GALLERY = [
-  { src: ITINERARY.imageMain, alt: "Positano at golden hour" },
-  { src: ITINERARY.imageLeft, alt: "A quiet coastal detail" },
-  { src: ITINERARY.imageRight, alt: "A quiet coastal detail" },
-  { src: ITINERARY.imageExtra1, alt: "A quiet coastal detail" },
-  { src: ITINERARY.imageExtra2, alt: "A quiet coastal detail" },
+  { src: ITINERARY.imageMain, alt: "A moment from the week, composed" },
+  { src: ITINERARY.imageLeft, alt: "The light on the water" },
+  { src: ITINERARY.imageRight, alt: "A table set for two" },
+  { src: ITINERARY.imageExtra1, alt: "The details, kept quietly" },
+  { src: ITINERARY.imageExtra2, alt: "An evening in the estate" },
 ];
 
 /**
