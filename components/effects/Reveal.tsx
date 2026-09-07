@@ -26,7 +26,7 @@ export function Reveal({ children, className, delay = 0, y = 32 }: RevealProps) 
         scrollTrigger: {
           trigger: scope,
           start: "top 85%",
-          toggleActions: "play none none reverse",
+          toggleActions: "play none none none",
         },
       }
     );

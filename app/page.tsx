@@ -1,16 +1,16 @@
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { Cursor } from "@/components/Cursor";
-import { ScrollProgress } from "@/components/ScrollProgress";
-import { Navigation } from "@/components/Navigation";
-import { Hero } from "@/components/Hero";
-import { BrandStatement } from "@/components/BrandStatement";
-import { Marquee } from "@/components/Marquee";
-import { Destinations } from "@/components/Destinations";
-import { FeaturedItinerary } from "@/components/FeaturedItinerary";
-import { Testimonial } from "@/components/Testimonial";
-import { Experiences } from "@/components/Experiences";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/effects/SmoothScroll";
+import { Cursor } from "@/components/effects/Cursor";
+import { ScrollProgress } from "@/components/effects/ScrollProgress";
+import { Navigation } from "@/components/shared/Navigation";
+import { Hero } from "@/components/home/Hero";
+import { BrandStatement } from "@/components/home/BrandStatement";
+import { Marquee } from "@/components/home/Marquee";
+import { Destinations } from "@/components/home/Destinations";
+import { FeaturedItinerary } from "@/components/home/FeaturedItinerary";
+import { Testimonial } from "@/components/home/Testimonial";
+import { Atelier } from "@/components/home/Atelier";
+import { HowItWorks } from "@/components/home/HowItWorks";
+import { Footer } from "@/components/shared/Footer";
 import { DESTINATIONS } from "@/lib/data";
 
 export default function Home() {
@@ -27,7 +27,7 @@ export default function Home() {
         <Destinations />
         <FeaturedItinerary />
         <Testimonial />
-        <Experiences />
+        <Atelier />
         <HowItWorks />
       </main>
       <Footer />

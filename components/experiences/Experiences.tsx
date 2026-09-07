@@ -5,7 +5,7 @@ import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { prefersReducedMotion } from "@/lib/motion";
 import { EXPERIENCES } from "@/lib/data";
-import { RevealText } from "./RevealText";
+import { RevealText } from "@/components/effects/RevealText";
 
 /**
  * Curated Experiences — a pinned, scroll-driven sequence.
@@ -171,7 +171,7 @@ export function Experiences() {
       className="relative h-[100svh] overflow-hidden bg-ivory"
     >
       {/* Intro act */}
-      <div className="ex-intro absolute inset-0 flex items-start justify-center bg-cream">
+      <div className="ex-intro absolute inset-0 flex items-start justify-center bg-ivory">
         <div className="w-full max-w-3xl px-6 pt-24 text-center md:pt-32">
           <p className="mb-8 text-xs uppercase tracking-luxe text-gold">
             Curated Experiences

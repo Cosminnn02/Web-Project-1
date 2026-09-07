@@ -5,9 +5,9 @@ import Image from "next/image";
 import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { DUR, EASE, STAGGER } from "@/lib/motion";
-import { RevealText } from "./RevealText";
-import { Reveal } from "./Reveal";
-import { CTA } from "./CTA";
+import { RevealText } from "@/components/effects/RevealText";
+import { Reveal } from "@/components/effects/Reveal";
+import { CTA } from "@/components/shared/CTA";
 import { DestinationCard } from "./DestinationCard";
 import { DESTINATIONS, type Destination } from "@/lib/data";
 

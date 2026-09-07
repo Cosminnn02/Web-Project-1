@@ -1,10 +1,11 @@
 "use client";
 
+import { useEffect } from "react";
 import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { EASE } from "@/lib/motion";
 import { STEPS } from "@/lib/data";
-import { RevealText } from "./RevealText";
+import { RevealText } from "@/components/effects/RevealText";
 
 /**
  * How it works — a calm, service-driven 3-step process.
@@ -15,19 +16,6 @@ export function HowItWorks() {
     const circles = Array.from(scope.querySelectorAll<HTMLElement>(".step-circle"));
     const copies = Array.from(scope.querySelectorAll<HTMLElement>(".step-copy"));
     const line = scope.querySelector<HTMLElement>(".step-line");
-    const grid = scope.querySelector<HTMLElement>(".step-grid");
-
-    // Position the line exactly between circle 1 and circle 3 centers,
-    // measured from the real DOM so it's correct regardless of alignment.
-    if (line && grid && circles[0] && circles[3]) {
-      const gridRect = grid.getBoundingClientRect();
-      const c1 = circles[0].getBoundingClientRect();
-      const c4 = circles[3].getBoundingClientRect();
-      const left = c1.left + c1.width / 2 - gridRect.left;
-      const width = c4.left + c4.width / 2 - (c1.left + c1.width / 2);
-      line.style.left = `${left}px`;
-      line.style.width = `${width}px`;
-    }
 
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -62,6 +50,33 @@ export function HowItWorks() {
     tl.fromTo(circles[3], { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.35, ease: "back.out(1.7)" });
     tl.fromTo(copies[3], { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: EASE.out }, "-=0.15");
   });
+
+  // Keep the connecting line sized to the real circle centers, and re-measure
+  // on resize so it never overflows on a smaller screen.
+  useEffect(() => {
+    const scope = ref.current;
+    if (!scope) return;
+
+    const measure = () => {
+      const line = scope.querySelector<HTMLElement>(".step-line");
+      const steps = Array.from(scope.querySelectorAll<HTMLElement>(".step"));
+      if (!line || steps.length < 2) return;
+
+      // Measure the stable .step containers (not the circles, which animate
+      // from scale 0). offsetLeft is layout-based, so it's correct regardless
+      // of the entrance animation and updates on resize. The circle is 80px
+      // (h-20 w-20) and sits at the left edge of each step, so its center is
+      // step.offsetLeft + 40.
+      const first = steps[0].offsetLeft;
+      const last = steps[steps.length - 1].offsetLeft;
+      line.style.left = `${first + 40}px`;
+      line.style.width = `${last - first}px`;
+    };
+
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [ref]);
 
   return (
     <section className="relative overflow-hidden bg-cream px-6 py-36 md:px-10 md:py-56">
@@ -111,7 +126,7 @@ export function HowItWorks() {
           {/* Step 4 — the Get Started button */}
           <div className="step relative">
             <a
-              href="/private-travel"
+              href="/contact"
               className="step-circle mb-8 flex h-20 w-20 items-center justify-center rounded-full border border-gold/40 bg-ivory font-serif text-2xl text-gold shadow-sm transition-colors duration-500 hover:bg-gold hover:text-ivory"
             >
               Go

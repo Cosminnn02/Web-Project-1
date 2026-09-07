@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { Cursor } from "@/components/Cursor";
-import { Navigation } from "@/components/Navigation";
-import { DestinationDetail } from "@/components/DestinationDetail";
-import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/effects/SmoothScroll";
+import { Cursor } from "@/components/effects/Cursor";
+import { Navigation } from "@/components/shared/Navigation";
+import { DestinationDetail } from "@/components/destinations/DestinationDetail";
+import { Footer } from "@/components/shared/Footer";
 import { DESTINATIONS, getDestination, relatedTo } from "@/lib/data";
 
 interface Props {

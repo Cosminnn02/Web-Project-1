@@ -6,8 +6,8 @@ import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { DUR, EASE } from "@/lib/motion";
 import { ITINERARY } from "@/lib/data";
-import { RevealText } from "./RevealText";
-import { CTA } from "./CTA";
+import { RevealText } from "@/components/effects/RevealText";
+import { CTA } from "@/components/shared/CTA";
 
 const GALLERY = [
   { src: ITINERARY.imageMain, alt: "A moment from the week, composed" },
@@ -100,18 +100,22 @@ export function FeaturedItinerary() {
     <section
       id="itinerary"
       ref={ref}
-      className="relative flex min-h-[70svh] items-center overflow-hidden bg-charcoal px-6 py-28 text-ivory md:px-10 md:py-40"
+      className="relative flex min-h-[85svh] items-center overflow-hidden bg-cream px-6 py-16 md:px-10 md:py-24"
     >
+      {/* Top edge fades in from the ivory section above */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 h-32 bg-gradient-to-b from-ivory to-transparent md:h-40" />
       {/* Parallax image */}
       <div className="absolute inset-0 -z-10">
         <Image
           src={ITINERARY.image}
-          alt="The Amalfi coast at dusk"
+          alt="The Amalfi coast in the afternoon light"
           fill
           sizes="100vw"
-          className="it-img h-full w-full scale-110 object-cover opacity-40 will-change-transform"
+          className="it-img h-full w-full scale-110 object-cover will-change-transform"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal via-charcoal/80 to-charcoal/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/70 to-transparent" />
+        {/* Top edge dissolves into the previous section — no hard jump */}
+        <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cream via-cream/40 to-transparent md:h-72" />
       </div>
 
       <div className="mx-auto grid w-full max-w-[94vw] items-center gap-14 md:grid-cols-12 md:gap-10">
@@ -120,28 +124,28 @@ export function FeaturedItinerary() {
             {ITINERARY.eyebrow}
           </p>
 
-          <h2 className="it-item font-serif text-5xl leading-[1.05] md:text-7xl">
+          <h2 className="it-item font-serif text-5xl leading-[1.05] text-charcoal md:text-7xl">
             <RevealText text={ITINERARY.title} />
           </h2>
 
-          <p className="it-item mt-6 text-xs uppercase tracking-luxe text-ivory/60">
+          <p className="it-item mt-6 text-xs uppercase tracking-luxe text-ink/60">
             {ITINERARY.duration}
           </p>
 
-          <p className="it-item mt-8 max-w-xl text-base leading-relaxed text-ivory/80">
+          <p className="it-item mt-8 max-w-xl text-base leading-relaxed text-ink/75">
             {ITINERARY.description}
           </p>
 
           <ul className="it-item mt-10 space-y-3 border-l border-gold/30 pl-6">
             {ITINERARY.highlights.map((h) => (
-              <li key={h} className="text-sm text-ivory/75">
+              <li key={h} className="text-sm text-ink/70">
                 {h}
               </li>
             ))}
           </ul>
 
           <div className="it-item mt-12">
-            <CTA>View Full Itinerary</CTA>
+            <CTA href="/destinations/amalfi-coast">View Full Itinerary</CTA>
           </div>
         </div>
 
@@ -188,7 +192,7 @@ export function FeaturedItinerary() {
             <button
               onClick={() => go(-1)}
               aria-label="Previous image"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-ivory/25 text-lg text-ivory/80 transition-colors duration-300 hover:border-gold hover:text-gold"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/25 text-lg text-charcoal/70 transition-colors duration-300 hover:border-gold hover:text-gold"
             >
               ←
             </button>
@@ -196,7 +200,7 @@ export function FeaturedItinerary() {
             <button
               onClick={() => go(1)}
               aria-label="Next image"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-ivory/25 text-lg text-ivory/80 transition-colors duration-300 hover:border-gold hover:text-gold"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-charcoal/25 text-lg text-charcoal/70 transition-colors duration-300 hover:border-gold hover:text-gold"
             >
               →
             </button>

@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { Cursor } from "@/components/Cursor";
-import { Navigation } from "@/components/Navigation";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/effects/SmoothScroll";
+import { Cursor } from "@/components/effects/Cursor";
+import { Navigation } from "@/components/shared/Navigation";
+import { Footer } from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "Contact — Maison Voyage",
@@ -17,9 +16,7 @@ export default function ContactPage() {
       <SmoothScroll />
       <Cursor />
       <Navigation />
-      <main className="min-h-screen">
-        <Contact />
-      </main>
+      <main className="min-h-screen" />
       <Footer />
     </>
   );

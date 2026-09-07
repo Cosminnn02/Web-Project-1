@@ -15,7 +15,7 @@ export const BRAND = {
 export const NAV_LINKS = [
   { label: "About", href: "/about" },
   { label: "Destinations", href: "/destinations" },
-  { label: "The Process", href: "/process" },
+  { label: "Experiences", href: "/experiences" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -735,7 +735,7 @@ export const ITINERARY: Itinerary = {
     "The coast, after the day-trippers have gone",
   ],
   image:
-    "/pics/pexels-pixabay-358223.jpg",
+    "/images/destinations/amalfi-coast-hero.jpg",
   // Foreground gallery — a 5-image ring: center | sides | behind.
   // Local pictures in /public/pics, mapped to the itinerary's highlights.
   imageMain:
@@ -765,5 +765,66 @@ export const STATS = [
   { value: 18, suffix: "", label: "Destinations, held privately" },
   { value: 1, suffix: "", label: "Guest at a time, in every house" },
   { value: 24, suffix: "h", label: "A single point of contact, always" },
+];
+
+// ------------------------------------------------------------
+//  The Atelier — alternating image / text rows (static, no scroll fx).
+//  `imageLeft` controls which side the picture sits on.
+// ------------------------------------------------------------
+
+export interface AtelierRow {
+  eyebrow: string;
+  title: string;
+  body: string[];
+  cta?: { label: string; href: string };
+  image: string;
+  imageLeft: boolean;
+}
+
+export const ATELIER: AtelierRow[] = [
+  {
+    eyebrow: "The Atelier",
+    title: "About",
+    body: [
+      "A private travel atelier in Geneva. We do not sell trips — we compose them, quietly, and only for those who value the difference.",
+      "A small number of clients, a long memory of the places we love, and nothing that could not be offered to a friend.",
+    ],
+    cta: { label: "About", href: "/about" },
+    image: "/images/destinations/santorini-hero.jpg",
+    imageLeft: false,
+  },
+  {
+    eyebrow: "The Places",
+    title: "Destinations",
+    body: [
+      "Eighteen places we know well, and keep to ourselves. Each one held privately, each one different.",
+      "From the caldera to the fjord — the houses, the boats, and the light, arranged around you.",
+    ],
+    cta: { label: "Destinations", href: "/destinations" },
+    image: "/images/destinations/lofoten-islands-hero.jpg",
+    imageLeft: true,
+  },
+  {
+    eyebrow: "The Method",
+    title: "Experiences",
+    body: [
+      "Three quiet steps. A conversation, a proposal in writing, and the journey, held.",
+      "No forms, no pressure. Just a considered plan, and a single point of contact for the length of the trip.",
+    ],
+    cta: { label: "Experiences", href: "/experiences" },
+    image: "/images/destinations/kyoto-hero.jpg",
+    imageLeft: false,
+  },
+  {
+    eyebrow: "The Beginning",
+    title: "Contact",
+    body: [
+      "Begin the conversation. A few quiet details are all it takes — where, when, and what you are looking for.",
+      "We reply personally, and we keep everything in confidence.",
+    ],
+    cta: { label: "Contact", href: "/contact" },
+    image: "/images/destinations/maldives-hero.jpg",
+    imageLeft: true,
+  },
 ];
 

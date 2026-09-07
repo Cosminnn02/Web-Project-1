@@ -34,7 +34,7 @@ export function Marquee({ items }: { items: string[] }) {
   }, []);
 
   return (
-    <div className="overflow-hidden border-y border-line py-6">
+    <div className="my-16 overflow-hidden border-y border-line py-8 md:my-14">
       <div ref={track} className="flex w-max whitespace-nowrap will-change-transform">
         {[...items, ...items].map((t, i) => (
           <span

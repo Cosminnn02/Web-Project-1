@@ -23,23 +23,6 @@ interface DestinationCardProps {
  */
 export function DestinationCard({ d, index }: DestinationCardProps) {
   const ref = useReveal<HTMLElement>((scope) => {
-    gsap.fromTo(
-      scope,
-      { y: 48, opacity: 0 },
-      {
-        y: 0,
-        opacity: 1,
-        duration: DUR.standard,
-        ease: EASE.out,
-        delay: (index % 3) * 0.09,
-        scrollTrigger: {
-          trigger: scope,
-          start: "top 88%",
-          toggleActions: "play none none reverse",
-        },
-      }
-    );
-
     /* ——— Hover choreography ——— */
     const box = scope.querySelector<HTMLElement>(".dc-box");
     const img = scope.querySelector<HTMLElement>(".dc-img");

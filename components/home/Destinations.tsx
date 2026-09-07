@@ -7,7 +7,7 @@ import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { DUR, EASE } from "@/lib/motion";
 import { SIGNATURE, type Destination } from "@/lib/data";
-import { RevealText } from "./RevealText";
+import { RevealText } from "@/components/effects/RevealText";
 
 function DestinationCard({
   name,
@@ -214,7 +214,7 @@ export function Destinations() {
   };
 
   return (
-    <section id="destinations" className="relative bg-cream pb-40 pt-20 md:pb-64 md:pt-20">
+    <section id="destinations" className="relative bg-ivory pb-20 pt-20">
       <div className="mx-auto max-w-[94vw] px-6 md:px-10">
         <div className="mb-16 flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>

@@ -1,14 +1,13 @@
 import type { Metadata } from "next";
-import { SmoothScroll } from "@/components/SmoothScroll";
-import { Cursor } from "@/components/Cursor";
-import { Navigation } from "@/components/Navigation";
-import { About } from "@/components/About";
-import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/effects/SmoothScroll";
+import { Cursor } from "@/components/effects/Cursor";
+import { Navigation } from "@/components/shared/Navigation";
+import { Footer } from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
   title: "About — Maison Voyage",
   description:
-    "Maison Voyage is a private travel atelier in Geneva — a small number of houses, a long memory of places.",
+    "A private travel atelier in Geneva — the atelier, the standard, the hands.",
 };
 
 export default function AboutPage() {
@@ -17,9 +16,7 @@ export default function AboutPage() {
       <SmoothScroll />
       <Cursor />
       <Navigation />
-      <main className="min-h-screen">
-        <About />
-      </main>
+      <main className="min-h-screen" />
       <Footer />
     </>
   );

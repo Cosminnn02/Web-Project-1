@@ -4,7 +4,7 @@ import { gsap } from "@/lib/gsap";
 import { useReveal } from "@/hooks/useReveal";
 import { DUR, EASE } from "@/lib/motion";
 import { STATS } from "@/lib/data";
-import { RevealText } from "./RevealText";
+import { RevealText } from "@/components/effects/RevealText";
 
 function Stat({ value, suffix, label }: { value: number; suffix: string; label: string }) {
   const ref = useReveal<HTMLDivElement>((scope) => {

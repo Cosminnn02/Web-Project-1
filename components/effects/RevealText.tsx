@@ -39,7 +39,10 @@ export function RevealText({ text, className, delay = 0 }: RevealTextProps) {
   return (
     <span ref={ref} className={className}>
       {words.map((w, i) => (
-        <span key={i} className="inline-block overflow-hidden align-bottom">
+        <span
+          key={i}
+          className="inline-block overflow-hidden pb-[0.18em] align-bottom [-mb-0.18em]"
+        >
           <span className="rv-word inline-block will-change-transform">
             {w}
             {"\u00A0"}

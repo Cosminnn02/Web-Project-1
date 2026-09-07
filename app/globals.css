@@ -7,6 +7,7 @@
 @theme {
   --color-ivory: #f7f4ef;
   --color-cream: #efeae1;
+  --color-cream-deep: #e6e0d3;
   --color-charcoal: #1c1b19;
   --color-ink: #2a2825;
   --color-gold: #b08d57;
@@ -166,26 +167,6 @@ body {
 }
 
 /* ============================================================
-    ABOUT — drag rail (direct manipulation, no scroll involved).
-    Grab cursor; under reduced motion the rail becomes a plain
-    horizontal scroll and the arrows disappear.
-    ============================================================ */
-.ab-viewport {
-  cursor: grab;
-}
-.ab-viewport.is-dragging {
-  cursor: grabbing;
-}
-.ab-rail[data-reduced] .ab-viewport {
-  overflow-x: auto;
-  cursor: auto;
-}
-.ab-rail[data-reduced] .ab-prev,
-.ab-rail[data-reduced] .ab-next {
-  display: none;
-}
-
-/* ============================================================
     PROCESS — cards that live under your hand.
     Tilt follows the cursor (--rx/--ry), a quiet spotlight follows
     it (--mx/--my), and the flip is a 180° turn on toggle.
@@ -237,13 +218,11 @@ body {
   }
 }
 
-.pr-word,
-.ab-word {
+.pr-word {
   font-size: 5rem;
 }
 @media (min-width: 768px) {
-  .pr-word,
-  .ab-word {
+  .pr-word {
     font-size: 8rem;
   }
 }

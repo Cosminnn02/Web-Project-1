@@ -45,20 +45,22 @@ export function Testimonial() {
   return (
     <section
       ref={ref}
-      className="relative bg-charcoal px-6 py-12 text-ivory md:px-10 md:py-16"
+      className="relative bg-cream px-6 py-10 pb-28 text-charcoal md:px-10 md:py-14 md:pb-36"
     >
+      {/* Bottom edge dissolves into the ivory section below */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-32 bg-gradient-to-t from-ivory to-transparent md:h-40" />
       <div className="mx-auto max-w-2xl text-center">
         <span className="mb-4 block font-serif text-4xl leading-none text-gold/50">
           &ldquo;
         </span>
-        <blockquote className="tq-quote font-serif text-xl leading-[1.45] text-ivory md:text-2xl">
+        <blockquote className="tq-quote font-serif text-xl leading-[1.45] text-charcoal md:text-2xl">
           {TESTIMONIAL.quote}
         </blockquote>
         <div className="tq-by mt-6">
-          <p className="text-[0.65rem] uppercase tracking-luxe text-ivory/70">
+          <p className="text-[0.65rem] uppercase tracking-luxe text-ink/70">
             {TESTIMONIAL.author}
           </p>
-          <p className="mt-1 text-[0.65rem] tracking-luxe text-ivory/40">
+          <p className="mt-1 text-[0.65rem] tracking-luxe text-ink/40">
             {TESTIMONIAL.detail}
           </p>
         </div>
