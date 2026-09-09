@@ -110,18 +110,6 @@ body {
   margin-bottom: 0.15rem;
 }
 
-/* Dark-act variant of the field (for charcoal sections) */
-.field-dark input,
-.field-dark select,
-.field-dark textarea {
-  color: var(--color-ivory);
-  border-bottom-color: rgba(247, 244, 239, 0.25);
-}
-.field-dark label {
-  color: var(--color-ivory);
-  opacity: 0.6;
-}
-
 /* ============================================================
    EXPERIENCES — reduced-motion fallback (no pinning)
    When JS skips the pinned sequence, the acts stack and scroll
@@ -162,67 +150,6 @@ body {
 }
 @media (min-width: 768px) {
   .ex-word {
-    font-size: 8rem;
-  }
-}
-
-/* ============================================================
-    PROCESS — cards that live under your hand.
-    Tilt follows the cursor (--rx/--ry), a quiet spotlight follows
-    it (--mx/--my), and the flip is a 180° turn on toggle.
-    The article carries `perspective`; both layers keep 3D context.
-    ============================================================ */
-.pr-flip {
-  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-  transform-style: preserve-3d;
-  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  will-change: transform;
-}
-.pr-flip-inner {
-  transform: rotateY(var(--flip, 0deg));
-  transform-style: preserve-3d;
-  transition: transform 0.9s cubic-bezier(0.19, 1, 0.22, 1);
-}
-.pr-step[data-flip] .pr-flip-inner {
-  --flip: 180deg;
-}
-.pr-face {
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-.pr-back {
-  transform: rotateY(180deg);
-}
-.pr-glow {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    620px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(201, 174, 134, 0.16),
-    transparent 45%
-  );
-}
-/* The giant word behind the top heading re-enters when the index changes. */
-.ghost-swap {
-  animation: ghost-in 0.6s cubic-bezier(0.19, 1, 0.22, 1) both;
-}
-@keyframes ghost-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.15em);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.pr-word {
-  font-size: 5rem;
-}
-@media (min-width: 768px) {
-  .pr-word {
     font-size: 8rem;
   }
 }

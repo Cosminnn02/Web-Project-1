@@ -40,6 +40,7 @@ export interface Destination {
   season: string;
   duration: string;
   highlights: string[];
+  facts: string[];
   note: string;
   gallery: string[];
   coords: { lat: number; lon: number };
@@ -64,6 +65,12 @@ export const DESTINATIONS: Destination[] = [
       "A boat and captain, at your call, daily",
       "The island's cellars, opened privately",
       "The caldera at dusk — from your terrace",
+    ],
+    facts: [
+      "The caldera is a drowned volcano — the rim you stay on is its edge",
+      "The white villages are built to throw the light back",
+      "The water here runs cooler than the Aegean average",
+      "The east rim is quieter than Oia, and the light is the same",
     ],
     note: "Most guests ask for one quiet morning on the water. We make it happen — and leave the rest of the day deliberately unplanned.",
     gallery: [
@@ -92,6 +99,12 @@ export const DESTINATIONS: Destination[] = [
       "A chef who cooks only for you",
       "The coast, after the day-trippers have gone",
     ],
+    facts: [
+      "The coast is 100km of cliff — most of it unbuildable",
+      "Lemon groves climb the terraces above the sea",
+      "The water is clearest in the coves, not the bays",
+      "The towns are older than the road that connects them",
+    ],
     note: "We time your mornings to the light on the water. If a day asks for nothing, we let it be nothing.",
     gallery: [
       "/images/destinations/amalfi-coast-hero.jpg",
@@ -118,6 +131,12 @@ export const DESTINATIONS: Destination[] = [
       "Heli access to untracked snow, in season",
       "An alpine lodge table, set for one evening",
       "The valley, after the lifts have closed",
+    ],
+    facts: [
+      "The valley floor sits 1,500m above the sea",
+      "The peaks are limestone — they glow at dusk",
+      "The lifts close at dusk; the ridges stay open",
+      "The air is so dry the snow holds its shape",
     ],
     note: "Snow, or green, or both — we build the week around the season's best light, not the calendar.",
     gallery: [
@@ -146,6 +165,12 @@ export const DESTINATIONS: Destination[] = [
       "Midnight-sun swims and long, unhurried dinners",
       "The islands, without a single other guest",
     ],
+    facts: [
+      "The islands sit above the Arctic Circle — the sun barely sets in June",
+      "The rorbus are 200-year-old fisherman's cabins",
+      "The sea here is the color of slate, not blue",
+      "The only road is one lane, and it is enough",
+    ],
     note: "In Lofoten, the light does the work. Our only task is to keep everything else out of the way.",
     gallery: [
       "/images/destinations/lofoten-islands-hero.jpg",
@@ -172,6 +197,12 @@ export const DESTINATIONS: Destination[] = [
       "Temple gardens, emptied for you, in season",
       "A private dining table in the old quarter",
       "The approach to a shrine, before it opens",
+    ],
+    facts: [
+      "The city has kept its name for 1,200 years",
+      "The temple gardens are raked, not planted",
+      "The old quarter is a grid of lanes, not streets",
+      "The tea is served at 80°C, never boiling",
     ],
     note: "We ask you for one thing: to walk slowly. The city has waited centuries; it can wait for you.",
     gallery: [
@@ -200,6 +231,12 @@ export const DESTINATIONS: Destination[] = [
       "The rice terraces, before the sun is up",
       "Evenings that end when you decide",
     ],
+    facts: [
+      "The island is a volcano — the rice terraces are its terraces",
+      "The water temples are for the rice, not the tourists",
+      "The dry season is April to October; the wet is the rest",
+      "The jungle estate sits above the cloud line in the afternoons",
+    ],
     note: "Bali rewards slowness. We schedule almost nothing, on purpose.",
     gallery: [
       "/images/destinations/bali-hero.jpg",
@@ -226,6 +263,12 @@ export const DESTINATIONS: Destination[] = [
       "Dining on the sand, or the deck, or the water",
       "A seaplane you will not think about",
       "The horizon, with nothing on it",
+    ],
+    facts: [
+      "Each atoll is a ring of islands around a lagoon",
+      "The house reef is the island's own garden",
+      "The water is so clear the horizon seems to have no bottom",
+      "The seaplane is the only way in — and the best part",
     ],
     note: "Some guests arrive with a list of things to do. By day three, the list is gone — and they are glad.",
     gallery: [
@@ -254,6 +297,12 @@ export const DESTINATIONS: Destination[] = [
       "A chef from the souks, cooking in your riad",
       "The Atlas foothills, privately, for one day",
     ],
+    facts: [
+      "The medina is a maze of 900 alleys",
+      "The riad is a house with a courtyard, not a room",
+      "The souks close at dusk; the city doesn't",
+      "The Atlas foothills are a day's drive away",
+    ],
     note: "Marrakech is a city of doors. We know which ones open onto quiet.",
     gallery: [
       "/images/destinations/marrakech-hero.jpg",
@@ -280,6 +329,12 @@ export const DESTINATIONS: Destination[] = [
       "Fly-in access — no shared roads",
       "Dining under the stars, set for you alone",
       "The migration, followed at a distance that respects it",
+    ],
+    facts: [
+      "The migration moves 800km in a year",
+      "The plains are 14,000 square km of grass",
+      "The camp is set in the open, not hidden",
+      "The guide reads the grass, not the map",
     ],
     note: "We position the camp weeks ahead of the movement. When you arrive, it is already where it needs to be.",
     gallery: [
@@ -308,6 +363,12 @@ export const DESTINATIONS: Destination[] = [
       "The peninsula, privately, by car or boat",
       "Table Mountain, before the city wakes",
     ],
+    facts: [
+      "The city sits between two oceans",
+      "Table Mountain is a flat-topped sandstone plateau",
+      "The cellar is in the Cape Winelands, 90 minutes away",
+      "The light here is unlike anywhere else",
+    ],
     note: "Cape Town asks for one full day on the water. We have never once regretted giving it.",
     gallery: [
       "/images/destinations/cape-town-hero.jpg",
@@ -334,6 +395,12 @@ export const DESTINATIONS: Destination[] = [
       "A table by the water, at first light",
       "Hot springs, after the day's travel",
       "The Rockies, in a season of your choosing",
+    ],
+    facts: [
+      "The lake is glacial — the color is rock flour, not depth",
+      "The park is 6,641 square km of mountain",
+      "The hot springs are 38°C, fed by the earth",
+      "The peaks are limestone — they glow at dusk",
     ],
     note: "The mountain decides the schedule. We simply make sure everything is ready when it decides.",
     gallery: [
@@ -362,6 +429,12 @@ export const DESTINATIONS: Destination[] = [
       "Evenings on the deck, with no view you can name",
       "The fog, when it comes — and when it leaves",
     ],
+    facts: [
+      "The coast is 80km of cliff and fog",
+      "The road is one lane, and it is enough",
+      "The house sits above the sea, not on it",
+      "The fog comes in the afternoons and leaves by dusk",
+    ],
     note: "Big Sur is best with almost nothing planned. We plan everything, so that nothing feels planned.",
     gallery: [
       "/images/destinations/big-sur-hero.jpg",
@@ -388,6 +461,12 @@ export const DESTINATIONS: Destination[] = [
       "A chef who cooks from the market at dawn",
       "The ruins, privately, in the early light",
       "The sea, from a shore you will not share",
+    ],
+    facts: [
+      "The cenote is a sinkhole — the water is from the rain",
+      "The ruins are Mayan, 1,000 years old",
+      "The jungle is 500 species of orchid",
+      "The sea is the Caribbean, not the Gulf",
     ],
     note: "We time the cenote to the light in the water. It is not a small thing, and it is never rushed.",
     gallery: [
@@ -416,6 +495,12 @@ export const DESTINATIONS: Destination[] = [
       "A table in a working kitchen, in the Andes",
       "The altitude, handled so you never notice it",
     ],
+    facts: [
+      "The city sits at 3,400m — the altitude is real",
+      "The road to Machu Picchu is 75km of mountain",
+      "The hacienda is above the valley, not in it",
+      "The Inca walls are still standing, 500 years on",
+    ],
     note: "The mountain rewards the slow arrival. We build the days so that you climb into it, day by day.",
     gallery: [
       "/images/destinations/cusco-hero.jpg",
@@ -442,6 +527,12 @@ export const DESTINATIONS: Destination[] = [
       "A table in the fields, under open sky",
       "The wind — which we plan around, not against",
       "The end of the world, without the crowds that come to see it",
+    ],
+    facts: [
+      "The peaks rise out of the pampas like a rumor",
+      "The wind is 80km/h, and it is the point",
+      "The estancia is 200km from the nearest town",
+      "The ice is 10,000 years old",
     ],
     note: "Patagonia is weather first. We hold a day in reserve, always, and you will wonder why.",
     gallery: [
@@ -470,6 +561,12 @@ export const DESTINATIONS: Destination[] = [
       "A table with the lake, at dusk",
       "The after — the quiet, once the adventure is done",
     ],
+    facts: [
+      "The lake is 100km long and 400m deep",
+      "The Southern Alps are the backbone of the island",
+      "The heli is the only way to the range",
+      "The town is 5,000 people, and it is enough",
+    ],
     note: "Some guests want the mountain. Some want the silence after. We arrange both, in that order.",
     gallery: [
       "/images/destinations/queenstown-hero.jpg",
@@ -497,6 +594,12 @@ export const DESTINATIONS: Destination[] = [
       "Diving or snorkeling — or neither",
       "The horizon, in a blue you have not seen before",
     ],
+    facts: [
+      "The reef is 2,300km of living coral",
+      "The house reef is the island's own garden",
+      "The water is so clear the horizon seems to have no bottom",
+      "The outer reefs are a day's boat away",
+    ],
     note: "The reef is best at a distance, or not at all. We keep the days light, and the water yours.",
     gallery: [
       "/images/destinations/great-barrier-reef-hero.jpg",
@@ -523,6 +626,12 @@ export const DESTINATIONS: Destination[] = [
       "The ice, at a distance that respects it",
       "A table by the window, as the light turns",
       "The continent that belongs to no one",
+    ],
+    facts: [
+      "The continent is 14 million square km of ice",
+      "The research station is the only building for 100km",
+      "The ice is 2 million years old",
+      "The light in February is 20 hours a day",
     ],
     note: "We have taken a small number of people here, over the years. Every one of them arrived quieter than they left.",
     gallery: [

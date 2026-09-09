@@ -39,14 +39,16 @@ export function Atelier() {
     <section ref={ref} className="relative bg-ivory">
       {/* Rows stack edge-to-edge — full-bleed image, half the viewport each */}
       <div className="flex flex-col gap-10">
-        {ATELIER.map((row) => (
+        {ATELIER.map((row, i) => {
+          const isLast = i === ATELIER.length - 1;
+          return (
           <div
             key={row.title}
             className="at-row grid items-stretch md:grid-cols-2"
           >
             {/* Image — full-bleed, tall */}
             <div
-              className={`relative aspect-[4/3] w-full overflow-hidden bg-cream md:aspect-auto md:min-h-[55vh] ${
+              className={`relative aspect-[4/3] w-full overflow-hidden bg-cream shadow-[0_2px_4px_rgba(28,27,25,0.08),0_40px_100px_-12px_rgba(0,0,0,0.5)] md:aspect-auto md:min-h-[55vh] ${
                 row.imageLeft ? "md:order-1" : "md:order-2"
               }`}
             >
@@ -61,10 +63,13 @@ export function Atelier() {
 
             {/* Copy */}
             <div
-              className={`flex flex-col justify-center px-6 py-14 md:px-16 lg:px-24 ${
+              className={`relative flex flex-col justify-center px-6 py-14 md:px-16 lg:px-24 ${
                 row.imageLeft ? "md:order-2" : "md:order-1"
               }`}
             >
+              {isLast && (
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-cream to-transparent md:h-72" />
+              )}
               <p className="at-item mb-5 text-sm uppercase tracking-luxe text-gold">
                 {row.eyebrow}
               </p>
@@ -85,7 +90,8 @@ export function Atelier() {
               )}
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

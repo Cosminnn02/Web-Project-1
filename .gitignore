@@ -24,6 +24,9 @@
 .DS_Store
 *.pem
 
+# local agent instructions
+copilot-instructions.md
+
 # dsh session artifacts
 .dsh-drop/
 STATE-*.md

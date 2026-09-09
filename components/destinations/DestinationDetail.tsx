@@ -166,7 +166,7 @@ export function DestinationDetail({ d, related }: DestinationDetailProps) {
           scrollTrigger: {
             trigger: f,
             start: "top 85%",
-            toggleActions: "play none none reverse",
+            toggleActions: "play none none none",
           },
         }
       );
@@ -236,37 +236,34 @@ export function DestinationDetail({ d, related }: DestinationDetailProps) {
   return (
     <>
       {/* ——— The cover ——— */}
-      <header
-        ref={heroRef}
-        className="relative flex h-svh min-h-[640px] flex-col justify-end overflow-hidden"
-      >
-        <div className="absolute inset-0">
+      <header ref={heroRef} className="relative">
+        <div className="relative aspect-[22/9] w-full overflow-hidden">
           <Image
             src={d.image}
             alt={d.name}
             fill
             priority
             sizes="100vw"
-            className="dt-hero-img h-full w-full object-cover will-change-transform"
+            className="dt-hero-img h-full w-full object-cover object-center will-change-transform"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-charcoal/10 to-charcoal/40" />
-        </div>
+          <div className="absolute inset-0 bg-gradient-to-r from-charcoal/80 via-charcoal/40 to-charcoal/10" />
 
-        <div className="relative z-10 mx-auto w-full max-w-[94vw] px-6 pb-14 md:px-10 md:pb-16">
-          <div className="dt-hero-copy">
-            <Link
-              href="/destinations"
-              className="group inline-flex items-center gap-3 text-xs uppercase tracking-luxe text-ivory/80 transition-colors duration-300 hover:text-gold"
-            >
-              <span className="inline-block h-px w-8 bg-ivory/40 transition-all duration-500 group-hover:w-12 group-hover:bg-gold" />
-              All destinations
-            </Link>
-            <p className="mt-10 text-xs uppercase tracking-luxe text-gold">
-              Nº {String(no).padStart(2, "0")} · {d.continent} · {d.region}
-            </p>
-            <h1 className="mt-4 font-serif text-5xl leading-[1.05] text-ivory md:text-7xl xl:text-8xl">
-              <RevealText text={d.name} />
-            </h1>
+          <div className="absolute inset-0 flex items-center pl-16 pr-6 md:pl-28 md:pr-10">
+            <div className="dt-hero-copy">
+              <Link
+                href="/destinations"
+                className="group inline-flex items-center gap-3 text-xs uppercase tracking-luxe text-ivory/80 transition-colors duration-300 hover:text-gold"
+              >
+                <span className="inline-block h-px w-8 bg-ivory/40 transition-all duration-500 group-hover:w-12 group-hover:bg-gold" />
+                All destinations
+              </Link>
+              <p className="mt-6 text-xs uppercase tracking-luxe text-gold">
+                Nº {String(no).padStart(2, "0")} · {d.continent} · {d.region}
+              </p>
+              <h1 className="mt-4 font-serif text-[clamp(3rem,5.5vw,5.75rem)] leading-[1.05] text-ivory">
+                <RevealText text={d.name} />
+              </h1>
+            </div>
           </div>
         </div>
       </header>
@@ -330,7 +327,7 @@ export function DestinationDetail({ d, related }: DestinationDetailProps) {
       {/* ——— Interlude: one full-bleed frame ——— */}
       <section
         ref={interRef}
-        className="relative h-[72svh] min-h-[480px] w-full overflow-hidden bg-cream"
+        className="relative aspect-[28/9] w-full overflow-hidden bg-cream"
       >
         <Image
           src={d.gallery[1]}
@@ -364,48 +361,74 @@ export function DestinationDetail({ d, related }: DestinationDetailProps) {
           </Reveal>
 
           <div className="grid gap-10 md:gap-14 lg:grid-cols-12">
-            {/* Tall frame — the first light */}
-            <figure className="dt-frame lg:col-span-5">
-              <div className="relative overflow-hidden bg-ivory ring-1 ring-charcoal/5" style={{ aspectRatio: "4 / 5" }}>
-                <Image
-                  src={d.gallery[0]}
-                  alt={`${d.name} — the first light`}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 42vw"
-                  className="dt-frame-img h-full w-full object-cover will-change-transform"
-                />
+            {/* Left column — the first light, then a note on the place */}
+            <div className="flex flex-col gap-10 md:gap-14 lg:col-span-5">
+            <figure className="dt-frame">
+              <div className="bg-ivory p-4 shadow-[0_1px_2px_rgba(28,27,25,0.06),0_14px_34px_-14px_rgba(28,27,25,0.28)] ring-1 ring-charcoal/5">
+                <div className="relative overflow-hidden bg-cream" style={{ aspectRatio: "3 / 4" }}>
+                  <Image
+                    src={d.gallery[0]}
+                    alt={`${d.name} — the first light`}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 42vw"
+                    className="dt-frame-img h-full w-full object-cover will-change-transform"
+                  />
+                </div>
+                <div className="flex items-baseline justify-between gap-3 px-1 pt-3.5 pb-1">
+                  <span className="font-serif text-sm italic text-charcoal">
+                    {FRAMES[0].caption}
+                  </span>
+                  <span className="shrink-0 text-[0.6rem] uppercase tracking-luxe text-gold">
+                    {FRAMES[0].n}
+                  </span>
+                </div>
               </div>
-              <figcaption className="mt-4 flex items-baseline gap-4">
-                <span className="font-serif text-sm italic text-gold">
-                  {FRAMES[0].n}
-                </span>
-                <span className="text-[0.65rem] uppercase tracking-luxe text-ink/55">
-                  {FRAMES[0].caption}
-                </span>
-              </figcaption>
             </figure>
+
+            {/* A note on the place — the experiences copy structure */}
+            <div className="flex flex-1 flex-col justify-center px-1">
+              <p className="mb-6 text-sm uppercase tracking-luxe text-gold">
+                {d.region}
+              </p>
+              <h3 className="font-serif text-4xl leading-[1.08] text-charcoal md:text-5xl">
+                {d.name}
+              </h3>
+              <p className="mt-7 max-w-lg text-base leading-relaxed text-ink/75 md:text-lg">
+                {d.story}
+              </p>
+              <ul className="mt-10 space-y-4 border-l border-gold/30 pl-7">
+                {d.facts.map((f) => (
+                  <li key={f} className="text-base leading-relaxed text-ink/70 md:text-lg">
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            </div>
 
             {/* Two frames — the hours, the last light */}
             <div className="flex flex-col gap-10 md:gap-14 lg:col-span-7">
               {[1, 2].map((i) => (
                 <figure key={i} className="dt-frame">
-                  <div className="relative overflow-hidden bg-ivory ring-1 ring-charcoal/5" style={{ aspectRatio: "4 / 3" }}>
-                    <Image
-                      src={d.gallery[i]}
-                      alt={`${d.name} — ${i === 1 ? "the long hours" : "the last light"}`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 58vw"
-                      className="dt-frame-img h-full w-full object-cover will-change-transform"
-                    />
+                  <div className="bg-ivory p-4 shadow-[0_1px_2px_rgba(28,27,25,0.06),0_14px_34px_-14px_rgba(28,27,25,0.28)] ring-1 ring-charcoal/5">
+                    <div className="relative overflow-hidden bg-cream" style={{ aspectRatio: "3 / 2" }}>
+                      <Image
+                        src={d.gallery[i]}
+                        alt={`${d.name} — ${i === 1 ? "the long hours" : "the last light"}`}
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 58vw"
+                        className="dt-frame-img h-full w-full object-cover will-change-transform"
+                      />
+                    </div>
+                    <div className="flex items-baseline justify-between gap-3 px-1 pt-3.5 pb-1">
+                      <span className="font-serif text-sm italic text-charcoal">
+                        {FRAMES[i].caption}
+                      </span>
+                      <span className="shrink-0 text-[0.6rem] uppercase tracking-luxe text-gold">
+                        {FRAMES[i].n}
+                      </span>
+                    </div>
                   </div>
-                  <figcaption className="mt-4 flex items-baseline gap-4">
-                    <span className="font-serif text-sm italic text-gold">
-                      {FRAMES[i].n}
-                    </span>
-                    <span className="text-[0.65rem] uppercase tracking-luxe text-ink/55">
-                      {FRAMES[i].caption}
-                    </span>
-                  </figcaption>
                 </figure>
               ))}
             </div>
@@ -456,7 +479,7 @@ export function DestinationDetail({ d, related }: DestinationDetailProps) {
       {/* ——— The file ——— */}
       <section
         ref={fileRef}
-        className="border-y border-line bg-cream px-6 py-20 md:px-10 md:py-28"
+        className="border-y border-line bg-ivory px-6 py-20 md:px-10 md:py-28"
       >
         <div className="mx-auto max-w-[94vw]">
           <p className="mb-12 max-w-md font-serif text-2xl leading-[1.4] text-charcoal md:text-3xl">

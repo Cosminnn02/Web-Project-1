@@ -1,16 +1,19 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
 import { prefersReducedMotion } from "@/lib/motion";
-import { setLenis } from "@/lib/lenis";
+import { setLenis, getLenis } from "@/lib/lenis";
 
 /**
  * Buttery smooth scroll (Lenis) synced with GSAP ScrollTrigger.
  * Rendered once at the app level. Disabled under reduced motion.
  */
 export function SmoothScroll() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (prefersReducedMotion()) return;
 
@@ -35,6 +38,16 @@ export function SmoothScroll() {
       lenis.destroy();
     };
   }, []);
+
+  // Scroll to top on route change
+  useEffect(() => {
+    const lenis = getLenis();
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
 
   return null;
 }

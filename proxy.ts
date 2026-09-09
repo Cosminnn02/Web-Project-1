@@ -9,7 +9,7 @@ import { NextRequest, NextResponse } from "next/server";
  * visit plays instantly from cache with zero round-trips. Swapping a clip
  * produces a new hash → new URL → no stale-cache confusion.
  */
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   if (req.nextUrl.pathname.startsWith("/videos/")) {
     const res = NextResponse.next();
     res.headers.set("Cache-Control", "public, max-age=31536000, immutable");

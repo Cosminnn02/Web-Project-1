@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SmoothScroll } from "@/components/effects/SmoothScroll";
 import { Cursor } from "@/components/effects/Cursor";
 import { Navigation } from "@/components/shared/Navigation";
+import { Contact } from "@/components/contact/Contact";
 import { Footer } from "@/components/shared/Footer";
 
 export const metadata: Metadata = {
@@ -16,7 +17,9 @@ export default function ContactPage() {
       <SmoothScroll />
       <Cursor />
       <Navigation />
-      <main className="min-h-screen" />
+      <main className="min-h-screen">
+        <Contact />
+      </main>
       <Footer />
     </>
   );
